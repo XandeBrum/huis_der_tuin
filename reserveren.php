@@ -9,10 +9,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "INSERT INTO reservering VALUES (:reserverings_code, :van, :tot, :klant_code, :kamer_code, :created_at)";
 
    $klant_code = $_SESSION['klant_code'];
-   
-
    $kamer_code = $_GET['kamer_code'];
-
+   $reserverings_code = $_GET['reserverings_code'];
    
     $placeholders = [
         'reserverings_code' => NULL,

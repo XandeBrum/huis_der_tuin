@@ -10,7 +10,7 @@ $placeholder = [
     'password'=> password_hash('medewerker', PASSWORD_DEFAULT),
 ]; 
 
-$sql2 = "INSERT INTO klant VALUES (:klant_code, :username, :password, :klant_naam, :adres, :plaats, :postcode, :telefoon)";
+$sql_scnd = "INSERT INTO klant VALUES (:klant_code, :username, :password, :klant_naam, :adres, :plaats, :postcode, :telefoon)";
 $placeholder2 = [
     'klant_code'=> NULL,
     'username'=> 'klant',
@@ -26,6 +26,6 @@ $db = new database();
 $db->insert($sql, $placeholder);
 
 $db = new database();
-$db->insert($sql2, $placeholder2);
+$db->insert($sql_scnd, $placeholder2);
 
 ?> 

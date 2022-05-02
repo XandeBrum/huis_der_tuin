@@ -3,7 +3,29 @@
 require_once 'database.php';
 $db = new database();
 
-$act = $db->select("SELECT * FROM kamers");
+$geboekte_kamers = $db->select("SELECT COUNT(*) FROM reservering WHERE van = CURRENT_DATE");
+
+$totale_kamers = $db->select("SELECT COUNT(*) FROM kamers");
+
+foreach($geboekte_kamers as $geboek) {
+    foreach($geboek as $geboekte) {
+
+    }
+}
+foreach($totale_kamers as $totale) {
+    foreach($totale as $totaal) {
+        
+    }
+}
+$beschikbare_kamers = $totaal - $geboekte;
+
+echo "Totaal beschikbare kamers van vandaag = " . $beschikbare_kamers;
+
+
+$act = $db->select("SELECT * 
+FROM kamers
+WHERE kamer_code NOT IN (SELECT kamer_code from reservering WHERE van = CURRENT_DATE)");
+
 
 include 'table_generators/table_generator_kamers.php';
 
